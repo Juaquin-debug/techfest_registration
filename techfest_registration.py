@@ -41,3 +41,15 @@ if duplicate:
         print("\nDuplicate name found: " + name)
 else:
     print("\nNo duplicate names.")
+
+summary = {}
+for p in participants:
+    track = p["track"]
+    if track in summary:
+        summary[track] += 1
+    else:
+        summary[track] = 1
+
+print("\nParticipants per Track:")
+for track in summary:
+    print(f"{track} : {summary[track]}")
