@@ -22,8 +22,22 @@ for p in range(len(participants)):
 
 unique = {p["track"] for p in participants}
 
-print("\n Tracks Offered in this Event:")
+print("\nTracks Offered in this Event:")
 if len(unique) < 2:
     print("Not enough variety in tracks.")
 else:
     print(", ".join(unique))
+
+seen = set()
+duplicate = set()
+for p in participants:
+    if p["name"] in seen:
+        duplicate.add(p["name"])
+    else:
+        seen.add(p["name"])
+
+if duplicate:
+    for name in duplicate:
+        print("\nDuplicate name found: " + name)
+else:
+    print("\nNo duplicate names.")
