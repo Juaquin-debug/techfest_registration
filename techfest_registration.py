@@ -19,3 +19,11 @@ print("Registered Participants:")
 
 for p in range(len(participants)):
     print(f"{p +1}. {participants[p]["name"]} - {participants[p]["track"]}")
+
+unique = {p["track"] for p in participants}
+
+print("\n Tracks Offered in this Event:")
+if len(unique) < 2:
+    print("Not enough variety in tracks.")
+else:
+    print(", ".join(unique))
